@@ -1,26 +1,31 @@
 <?php
 class Database {
+    private static $instance = null;
+    private $conn;
+
     private $host = "localhost";
-    private $db_name = "signin_table";
-    private $username = "root";
-    private $password = "";
-    public $conn;
+    private $db_name = "quizbuzz_db";
+    private $username = "root";      // XAMPP default
+    private $password = "";          // XAMPP default blank password
 
-    public function connect() {
-        $this->conn = null;
-
+    private function __construct() {
         try {
-            $this->conn = new PDO(
-                "mysql:host=" . $this->host . ";dbname=" . $this->db_name,
-                $this->username,
-                $this->password
-            );
-            // Set error mode to exception
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->conn = new PDO("mysql:host={$this->host};dbname={$this->db_name};charset=utf8mb4",
+                                  $this->username,
+                                  $this->password,
+                                  [
+                                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                                  ]);
         } catch(PDOException $e) {
-            echo "Connection error: " . $e->getMessage();
+            die("Database connection failed: " . $e->getMessage());
         }
+    }
 
-        return $this->conn;
+    public static function getConnection() {
+        if (self::$instance == null) {
+            self::$instance = new Database();
+        }
+        return self::$instance->conn;
     }
 }
