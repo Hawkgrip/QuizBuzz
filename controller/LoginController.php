@@ -1,6 +1,6 @@
 <?php
+require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../model/UserModel.php';
-session_start();
 
 class LoginController {
     private $userModel;
@@ -10,6 +10,11 @@ class LoginController {
     }
 
     public function handleLogin($username, $password, $role) {
+        if (empty($username) || empty($password) || !in_array($role, ALLOWED_ROLES)) {
+            echo "<p style='color:red;'>Invalid login input.</p>";
+            return;
+        }
+
         $user = $this->userModel->loginUser($username, $password, $role);
 
         if ($user) {
@@ -17,22 +22,10 @@ class LoginController {
             $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];
 
-            switch ($role) {
-                case 'admin':
-                    header('Location: ../view/homepage_admin.php');
-                    exit;
-                case 'teacher':
-                    header('Location: ../view/homepage_teacher.php');
-                    exit;
-                case 'student':
-                    header('Location: ../view/homepage_student.php');
-                    exit;
-                default:
-                    echo "Unknown role.";
-                    return;
-            }
+            header('Location: ' . BASE_URL . 'view/' . $role . '/dashboard.php');
+            exit;
         } else {
-            echo "<p style='color:red; text-align:center;'>Invalid username, password, or role.</p>";
+            echo "<p style='color:red;'>Invalid username or password.</p>";
         }
     }
 }
