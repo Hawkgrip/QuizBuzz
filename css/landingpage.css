@@ -1,133 +1,120 @@
-* {
-    text-decoration: none;
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-body, html {
-    height: 100%;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-.navbar {
-    background-color: #b97cda;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo a {
-    font-size: 24px;
-    font-weight: 700;
-    color: #630375;
-}
-
-.nav-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.nav-buttons button {
-    background-color: #fbf7fc;
-    border: none;
-    border-radius: 20px;
-    padding: 8px 16px;
-    cursor: pointer;
-}
-
-.nav-buttons button a {
-    color: #b97cda;
-    font-weight: bold;
-    font-size: 12px;
-    font-style: italic;
-}
-
-.nav-buttons button:hover {
-    background-color: #630375; /* Darker purple for hover */
-    color: white; /* Change text color to white */
-    transform: scale(1.05); /* Slightly enlarge the button */
-    transition: all 0.3s ease; /* Smooth transition */
-}
-
-.main-content {
-    display: flex;
-    height: calc(100vh - 60px); /* 60px for navbar */
-}
-
-.sidebar {
-    width: 200px;
-    background-color: #e8d5f3;
-    padding: 30px 15px;
-    display: flex;
-    flex-direction: column;
-}
-
-.sidebar ul {
-    list-style-type: none;
-}
-
-.sidebar li {
-    margin-bottom: 20px;
-}
-
-.sidebar a {
-    color: #630375;
-    font-weight: bold;
-    font-size: 16px;
-}
-
-.content-area {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    gap: 40px;
-}
-
-.image-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.image-stack img {
-    width: 250px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.text-block {
-    max-width: 500px;
-}
-
-.text-block h2 {
-    font-size: 24px;
-    color: #630375;
-    margin-bottom: 10px;
-}
-
-.text-block p {
-    font-size: 16px;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.text-block button {
-    background-color: #b97cda;
+/* Hero Section */
+.hero-section {
+    background: #4CAF50;
     color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    font-weight: bold;
-    cursor: pointer;
+    padding: 100px 0;
 }
 
-.text-block button:hover {
-    background-color: #630375; /* Darker purple for hover */
-    transform: scale(1.05); /* Slightly enlarge the button */
-    transition: all 0.3s ease; /* Smooth transition */
+.hero-title {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 12px 30px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #218838;
+}
+
+/* Features Section */
+.features-section {
+    padding: 60px 0;
+    background-color: #ffffff;
+}
+
+.features-section .section-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.feature-card {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.feature-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* CTA Section */
+.cta-section {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+
+.cta-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Footer Section */
+.footer-section {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
 }

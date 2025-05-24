@@ -1,5 +1,4 @@
 <?php
-require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../model/NotificationModel.php';
 
 class NotificationController {
@@ -14,6 +13,9 @@ class NotificationController {
     }
 
     public function markAsRead($notificationId) {
-        return $this->notificationModel->markAsRead($notificationId);
+        // Mark the notification as read in the database
+        $this->notificationModel->markAsRead($notificationId);
+        header('Location: ' . BASE_URL . 'view/notifications.php');
+        exit;
     }
 }
